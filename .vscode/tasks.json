@@ -4,17 +4,9 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "clean",
-            "type": "shell",
-            "command": "make clean",
-            "presentation": {
-                "close": true
-            }
-        },
-        {
             "label": "build",
             "type": "shell",
-            "command": "make all FILE_OUTPUT_NAME='a.out'",
+            "command": "make FILE_OUTPUT_NAME='a.out'",
             "presentation": {
                 "reveal": "silent"
             }
