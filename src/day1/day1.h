@@ -1,3 +1,5 @@
+#include "mytools.h"
+
 int GetCodePart1(std::string s);
 
 std::tuple<int, int> GetFirstNumber(std::string s);

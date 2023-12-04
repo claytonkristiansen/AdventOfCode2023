@@ -5,7 +5,6 @@
 #include <tuple>
 #include <ctype.h>
 
-#include "usefulfunctions.h"
 #include "day1.h"
 
 using   std::vector,
@@ -140,7 +139,7 @@ int GetCodePart2(string s) {
 
 int ExecuteDay1() {
     vector<string> inputVector;
-    ParseInput(inputVector, "input.txt");
+    MyTools::ParseInput(inputVector, "input.txt");
 
     int sum = 0;
 
