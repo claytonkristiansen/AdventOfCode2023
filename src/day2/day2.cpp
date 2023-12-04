@@ -4,26 +4,9 @@
 #include <sstream>
 #include <fstream>
 
+#include "day2.h"
+
 using namespace std;
-
-class Game 
-{
-public:
-    int id = 0;
-    int maxRed = 0;
-    int maxGreen = 0;
-    int maxBlue = 0;
-};
-
-void ParseInput(vector<string> &outputVec, string inputFilePath) {
-
-    std::ifstream inputStream(inputFilePath);
-
-    string s;
-    while (getline(inputStream, s)) {
-        outputVec.push_back(s); 
-    }
-}
 
 // Returns max number of red, green, and blue for game
 Game ParseGame(string gameString) {
@@ -75,7 +58,7 @@ bool GamePossible(Game game) {
     return true;
 }
 
-int main(int argc, char* argv[]) {
+int ExecuteDay2() {
     vector<string> input; 
     ParseInput(input, "input.txt");
 

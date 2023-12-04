@@ -5,21 +5,16 @@
 #include <tuple>
 #include <ctype.h>
 
+#include "usefulfunctions.h"
+#include "day1.h"
+
 using   std::vector,
         std::string,
         std::tuple, 
         std::make_tuple,
         std::get;
 
-void ParseInput(vector<string> &outputVec, string inputFilePath) {
 
-    std::ifstream inputStream(inputFilePath);
-
-    string s;
-    while (getline(inputStream, s)) {
-        outputVec.push_back(s); 
-    }
-}
 
 int GetCodePart1(string s) {
     int code = 0;
@@ -143,7 +138,7 @@ int GetCodePart2(string s) {
     return code;
 }
 
-int main() {
+int ExecuteDay1() {
     vector<string> inputVector;
     ParseInput(inputVector, "input.txt");
 
