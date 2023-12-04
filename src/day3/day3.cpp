@@ -65,6 +65,19 @@ namespace Day3
         return numbersVec;
     }
 
+    vector<CGear> FindGears(std::string line) {
+        vector<CGear> gears;
+        for (int i = 0; i < line.length(); ++i) {
+            if (line[i] == '*') {
+                gears.push_back(CGear(i));
+            }
+        }
+
+        return gears;
+    }
+
+
+
     bool IsSymbolAdjacent(CNumber number, vector<string> &input, int rowNum) {
         int width = input[rowNum].length();
         int startLookIndex = 0;
@@ -112,6 +125,7 @@ namespace Day3
 
         for (int i = 0; i < input.size(); ++i) {
             vector<CNumber> numbersInLine = FindNumbers(input[i]);
+
             for (CNumber number : numbersInLine) {
                 if (IsSymbolAdjacent(number, input, i)) {
                     sum += number.val;
@@ -119,7 +133,58 @@ namespace Day3
             }
         }
 
-        cout << "The sum of the part number is: " << sum << "\n\n";
+        cout << "The sum of the part numbers are: " << sum << "\n\n";
+
+        // Part 2
+        //--------------------------------------------------------------------------//
+
+        // Relying on these vectors being the same size
+        vector<vector<CNumber>> numberGrid;
+        vector<vector<CGear>> gearGrid;
+        int sum2 = 0;
+        
+        for (int i = 0; i < input.size(); ++i) {
+            numberGrid.push_back(FindNumbers(input[i]));
+            gearGrid.push_back(FindGears(input[i]));
+        }
+
+        for (int i = 0; i < gearGrid.size(); ++i) {
+            // Getting numbers adjacent to gear and calculating gear ratio
+            for (CGear gear : gearGrid[i]) {
+                int numAdjecentNumbers = 0;
+                int gearRatio = 1;
+                if (i > 0) {
+                    for (CNumber number : numberGrid[i - 1]) {
+                        if (gear.index >= number.startIndex - 1 && gear.index <= number.stopIndex + 1) {
+                            ++numAdjecentNumbers;
+                            gearRatio *= number.val;
+                        }
+                    }
+                }
+
+                for (CNumber number : numberGrid[i]) {
+                    if (gear.index == number.startIndex - 1 || gear.index == number.stopIndex + 1) {
+                        ++numAdjecentNumbers;
+                        gearRatio *= number.val;
+                    }
+                }
+
+                if (i < gearGrid.size() - 1) {
+                    for (CNumber number : numberGrid[i + 1]) {
+                        if (gear.index >= number.startIndex - 1 && gear.index <= number.stopIndex + 1) {
+                            ++numAdjecentNumbers;
+                            gearRatio *= number.val;
+                        }
+                    }
+                }
+
+                if (numAdjecentNumbers == 2) {
+                    sum2 += gearRatio;
+                }
+            }
+        }
+
+        cout << "The sum of the gear ratios are: " << sum2 << "\n\n";
 
         return 0;
     }       
