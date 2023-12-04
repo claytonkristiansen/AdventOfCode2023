@@ -1,4 +1,4 @@
-#include "usefulfunctions.h"
+#include "mytools.h"
 
 class Game 
 {

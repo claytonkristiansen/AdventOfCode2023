@@ -60,7 +60,7 @@ bool GamePossible(Game game) {
 
 int ExecuteDay2() {
     vector<string> input; 
-    ParseInput(input, "input.txt");
+    MyTools::ParseInput(input, "input.txt");
 
     int possibleGames = 0;
     int sumOfIds = 0;
