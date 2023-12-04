@@ -1,11 +1,14 @@
 #include "mytools.h"
 
-int GetCodePart1(std::string s);
+namespace Day1
+{
+    int GetCodePart1(std::string s);
 
-std::tuple<int, int> GetFirstNumber(std::string s);
+    std::tuple<int, int> GetFirstNumber(std::string s);
 
-std::tuple<int, int> GetLastNumber(std::string s);
+    std::tuple<int, int> GetLastNumber(std::string s);
 
-int GetCodePart2(std::string s);
+    int GetCodePart2(std::string s);
 
-extern int ExecuteDay1();
+    extern int Execute();
+}

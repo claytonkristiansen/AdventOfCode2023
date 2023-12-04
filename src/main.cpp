@@ -11,10 +11,10 @@ int main(int argc, char* argv[]) {
         switch (stoi(argv[1]))
         {
         case 1:
-            ExecuteDay1();
+            Day1::Execute();
             break;
         case 2:
-            ExecuteDay2();
+            Day2::Execute();
             break;
         case 3:
             Day3::Execute();
