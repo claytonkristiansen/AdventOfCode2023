@@ -17,7 +17,9 @@ namespace MyTools
 
         string s;
         while (getline(inputStream, s)) {
-            outputVec.push_back(s); 
+            if(!s.empty()) {
+                outputVec.push_back(s);   
+            } 
         }
     }
 }
