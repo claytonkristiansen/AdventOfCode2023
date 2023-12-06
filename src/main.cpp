@@ -4,6 +4,7 @@
 #include "day3/day3.h"
 #include "day4/day4.h"
 #include "day5/day5.h"
+#include "day6/day6.h"
 
 using namespace std;
 
@@ -26,6 +27,9 @@ int main(int argc, char* argv[]) {
             break;
         case 5:
             Day5::Execute();
+            break;
+        case 6:
+            Day6::Execute();
             break;
         default:
             break;
