@@ -10,7 +10,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/a.out",
-            "args": ["4"],      //Which day to run
+            "args": ["5"],      //Which day to run
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],
