@@ -1,3 +1,6 @@
+#include <chrono>
+#include <iostream>
+
 #include "mytools.h"
 #include "day1/day1.h"
 #include "day2/day2.h"
@@ -10,7 +13,11 @@ using namespace std;
 
 int main(int argc, char* argv[]) {
     if (argc == 2) {
-        switch (stoi(argv[1]))
+        int day = stoi(argv[1]);
+        chrono::_V2::system_clock::time_point t1;
+        chrono::_V2::system_clock::time_point t2;
+        t1 = chrono::high_resolution_clock::now();
+        switch (day)
         {
         case 1:
             Day1::Execute();
@@ -30,6 +37,11 @@ int main(int argc, char* argv[]) {
         default:
             break;
         }
+        t2 = chrono::high_resolution_clock::now();
+        chrono::nanoseconds time_ns = chrono::duration_cast<chrono::nanoseconds>(t2 - t1);
+        chrono::duration<double, std::milli> ms_double = t2 - t1;
+
+        cout << "Day " << day << " algorithm took " << time_ns.count() << " ns     ( " << ms_double.count() << " ms)\n\n";
     }
 
     return 0;

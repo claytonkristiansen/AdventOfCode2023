@@ -109,7 +109,7 @@ namespace Day5
 
     int Execute() {
         vector<string> input;
-        MyTools::ParseInput(input, "input.txt");
+        MyTools::ParseInput(input, "/home/clayt/repos/AdventOfCode2023/src/day5/input.txt");
 
         Map seedToSoilMap;
         Map soilToFertilizerMap;
